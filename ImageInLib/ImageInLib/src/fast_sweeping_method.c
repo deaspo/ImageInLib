@@ -146,8 +146,11 @@ bool fastSweepingFunction_3D(dataType ** distance3DPtr, dataType ** curve3DPtr, 
 						}
 					}
 				}
-				sweepNumber++;
-				break;
+				if (k == 0) //because if k is unsigned type, then k(0) - 1 == type maximum value
+					break;
+			}
+			sweepNumber++;
+			break;
 		case 4:
 			for (k = (zDim - 1); k >= 0; k--)
 			{
@@ -237,7 +240,6 @@ bool fastSweepingFunction_3D(dataType ** distance3DPtr, dataType ** curve3DPtr, 
 			}
 			sweepNumber++;
 			break;
-			}
 		}
 	}
 	for (i = 0; i < zDim; i++)
